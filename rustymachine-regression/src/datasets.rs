@@ -1,3 +1,10 @@
+use std::io::prelude::*;
+use std::io::BufReader;
+use std::path::Path;
+use std::fs::File;
+use std::vec::Vec;
+
+#[derive(Debug, Deserialize)]
 pub struct BostonHousing {
     crim: f64, zn: f64, indus: f64, chas: f64, nox: f64, 
     rm: f64, age: f64, dis: f64, rad: f64, tax: f64, 
@@ -8,7 +15,6 @@ impl BostonHousing {
     pub fn new(v: Vec<&str>) -> BostonHousing {
         let f64_formatted: Vec<f64> = v.iter().map(
             |s| s.parse().unwrap()).collect(); 
-        )
         BostonHousing {
             crim: f64_formatted[0], zn: f64_formatted[1], 
             indus: f64_formatted[2], chas: f64_formatted[3], 
@@ -31,13 +37,13 @@ impl BostonHousing {
     }
 }
 
-fn get_boston_record(s: String) -> BostonHousing {
+pub fn get_boston_record(s: String) -> BostonHousing {
     let v: Vec<&str> = s.split_whitespace().collect(); 
     let b: BostonHousing = BostonHousing::new(v); 
     b 
 }
 
-fn get_boston_records_from_file (
+pub fn get_boston_records_from_file (
     fl: impl AsRef<Path>) -> Vec<BostonHousing> {
         let file = File::open(fl).expect("no such file"); 
         let buf = BufReader::new(file); 
@@ -47,5 +53,4 @@ fn get_boston_records_from_file (
             ))
             .map(|r| get_boston_record(r))
             .collect()
-    }
-)
+}
