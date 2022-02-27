@@ -1,0 +1,26 @@
+TARGET = Some("aarch64-apple-darwin")
+OPT_LEVEL = Some("0")
+HOST = Some("aarch64-apple-darwin")
+CC_aarch64-apple-darwin = None
+CC_aarch64_apple_darwin = None
+HOST_CC = None
+CC = None
+CFLAGS_aarch64-apple-darwin = None
+CFLAGS_aarch64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = None
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-o" "/Users/moshan/Documents/gitRepos/GitHub/rust-ml/iris_xgboost/target/debug/build/libloading-06a5c790374cf9bb/out/src/os/unix/global_static.o" "-c" "src/os/unix/global_static.c"
+exit status: 0
+AR_aarch64-apple-darwin = None
+AR_aarch64_apple_darwin = None
+HOST_AR = None
+AR = None
+running: "ar" "cq" "/Users/moshan/Documents/gitRepos/GitHub/rust-ml/iris_xgboost/target/debug/build/libloading-06a5c790374cf9bb/out/libglobal_static.a" "/Users/moshan/Documents/gitRepos/GitHub/rust-ml/iris_xgboost/target/debug/build/libloading-06a5c790374cf9bb/out/src/os/unix/global_static.o"
+exit status: 0
+running: "ar" "s" "/Users/moshan/Documents/gitRepos/GitHub/rust-ml/iris_xgboost/target/debug/build/libloading-06a5c790374cf9bb/out/libglobal_static.a"
+exit status: 0
+cargo:rustc-link-lib=static=global_static
+cargo:rustc-link-search=native=/Users/moshan/Documents/gitRepos/GitHub/rust-ml/iris_xgboost/target/debug/build/libloading-06a5c790374cf9bb/out

@@ -1,0 +1,15 @@
+[package]
+name = "rustlearn-classification-tasks"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rustlearn = "0.5.0"
+csv = "1.0.5"
+serde = "1.0.89"
+serde_derive = "1.0.89"
+rand = "0.6"
+ndarray = "0.12.1"
+itertools = "0.8.0"

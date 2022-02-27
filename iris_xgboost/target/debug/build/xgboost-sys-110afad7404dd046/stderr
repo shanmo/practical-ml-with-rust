@@ -1,0 +1,296 @@
+Makefile:31: MAKE [/Library/Developer/CommandLineTools/usr/bin/make] - checked OK
+clang: error: unsupported option '-fopenmp'
+make: *** [build/learner.o] Error 1
+Makefile:31: MAKE [/Library/Developer/CommandLineTools/usr/bin/make] - checked OK
+Makefile:31: MAKE [/Library/Developer/CommandLineTools/usr/bin/make] - checked OK
+src/learner.cc:51:20: warning: unused function 'RenderParamVal' [-Wunused-function]
+inline std::string RenderParamVal(const std::string& str) {
+                   ^
+1 warning generated.
+In file included from src/objective/hinge.cc:17:
+In file included from src/objective/hinge.cu:9:
+src/objective/../common/transform.h:61:23: warning: moving a temporary object prevents copy elision [-Wpessimizing-move]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^
+src/objective/../common/transform.h:61:23: note: remove std::move call here
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^~~~~~~~~~                               ~
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/hinge.cu:59:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/hinge.cu:58:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/hinge.cu:59:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/hinge.cc:17:
+In file included from src/objective/hinge.cu:9:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/hinge.cu:84:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/hinge.cu:83:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/hinge.cu:84:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+3 warnings generated.
+In file included from src/objective/multiclass_obj.cc:17:
+In file included from src/objective/multiclass_obj.cu:17:
+src/objective/../common/transform.h:61:23: warning: moving a temporary object prevents copy elision [-Wpessimizing-move]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^
+src/objective/../common/transform.h:61:23: note: remove std::move call here
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^~~~~~~~~~                               ~
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/multiclass_obj.cu:78:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/multiclass_obj.cu:77:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/multiclass_obj.cu:78:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/multiclass_obj.cc:17:
+In file included from src/objective/multiclass_obj.cu:17:
+src/objective/../common/transform.h:65:48: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        func_(func), range_{std::move(range)}, distribution_{std::move(dist)},
+                                               ^
+src/objective/../common/transform.h:197:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/multiclass_obj.cu:132:11)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(dist), reshard};
+           ^
+src/objective/multiclass_obj.cu:131:28: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/multiclass_obj.cu:132:11)>' requested here
+      common::Transform<>::Init(
+                           ^
+In file included from src/objective/multiclass_obj.cc:17:
+In file included from src/objective/multiclass_obj.cu:17:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/multiclass_obj.cu:143:11)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/multiclass_obj.cu:142:28: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/multiclass_obj.cu:143:11)>' requested here
+      common::Transform<>::Init(
+                           ^
+4 warnings generated.
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:23: warning: moving a temporary object prevents copy elision [-Wpessimizing-move]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^
+src/objective/../common/transform.h:61:23: note: remove std::move call here
+        distribution_{std::move(GPUDistribution::Block(devices))},
+                      ^~~~~~~~~~                               ~
+In file included from src/objective/regression_obj.cc:17:
+src/objective/regression_obj.cu:543:12: warning: address of stack memory associated with local variable 'metric' returned [-Wreturn-stack-address]
+    return metric.c_str();
+           ^~~~~~
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:218:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:217:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:218:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:245:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:244:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:245:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:399:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:398:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:399:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:426:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:425:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:426:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:497:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:496:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:497:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:528:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:527:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:528:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:76:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:75:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:76:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:134:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LinearSquareLoss>::GetGradient' requested here
+.set_body([]() { return new RegLossObj<LinearSquareLoss>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:114:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:113:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:114:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:134:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LinearSquareLoss>::PredTransform' requested here
+.set_body([]() { return new RegLossObj<LinearSquareLoss>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:76:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:75:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:76:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:138:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticRegression>::GetGradient' requested here
+.set_body([]() { return new RegLossObj<LogisticRegression>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:114:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:113:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:114:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:138:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticRegression>::PredTransform' requested here
+.set_body([]() { return new RegLossObj<LogisticRegression>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:76:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:75:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:76:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:142:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticClassification>::GetGradient' requested here
+.set_body([]() { return new RegLossObj<LogisticClassification>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:114:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:113:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:114:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:142:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticClassification>::PredTransform' requested here
+.set_body([]() { return new RegLossObj<LogisticClassification>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:76:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:75:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:76:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:147:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticRaw>::GetGradient' requested here
+.set_body([]() { return new RegLossObj<LogisticRaw>(); });
+                            ^
+In file included from src/objective/regression_obj.cc:17:
+In file included from src/objective/regression_obj.cu:16:
+src/objective/../common/transform.h:61:9: warning: field 'distribution_' will be initialized after field 'reshard_' [-Wreorder-ctor]
+        distribution_{std::move(GPUDistribution::Block(devices))},
+        ^
+src/objective/../common/transform.h:191:12: note: in instantiation of member function 'xgboost::common::Transform<false>::Evaluator<(lambda at src/objective/regression_obj.cu:114:9)>::Evaluator' requested here
+    return Evaluator<Functor> {func, std::move(range), std::move(devices), reshard};
+           ^
+src/objective/regression_obj.cu:113:26: note: in instantiation of function template specialization 'xgboost::common::Transform<false>::Init<(lambda at src/objective/regression_obj.cu:114:9)>' requested here
+    common::Transform<>::Init(
+                         ^
+src/objective/regression_obj.cu:147:29: note: in instantiation of member function 'xgboost::obj::RegLossObj<xgboost::obj::LogisticRaw>::PredTransform' requested here
+.set_body([]() { return new RegLossObj<LogisticRaw>(); });
+                            ^
+16 warnings generated.
+In file included from src/tree/updater_fast_hist.cc:7:
+In file included from dmlc-core/include/dmlc/timer.h:10:
+In file included from dmlc-core/include/dmlc/./base.h:212:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:511:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:179:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__string:57:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:653:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:1428:5: warning: delete called on non-final 'xgboost::tree::FastHistMaker::Builder' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+    delete __ptr;
+    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:1689:7: note: in instantiation of member function 'std::default_delete<xgboost::tree::FastHistMaker::Builder>::operator()' requested here
+      __ptr_.second()(__tmp);
+      ^
+src/tree/updater_fast_hist.cc:87:16: note: in instantiation of member function 'std::unique_ptr<xgboost::tree::FastHistMaker::Builder>::reset' requested here
+      builder_.reset(new Builder(
+               ^
+1 warning generated.
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-msse2' [-Wunused-command-line-argument]
