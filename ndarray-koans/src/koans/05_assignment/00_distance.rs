@@ -27,7 +27,12 @@ mod assignment_distance {
         // ```
         //
         // But it wouldn't be very educational :P
-        __
+        assert_eq!(a.len(), b.len());
+        let mut result: f64 = 0.0; 
+        for i in 0..a.len() {
+            result += (a[i] - b[i]).powi(2);
+        }
+        result.sqrt()
     }
 
     #[test]

@@ -21,7 +21,7 @@ mod constructors_from_vec {
     // Given that `Array` is a generalisation of `Vec`,
     // it's fair to expect that you can get a `Vec` and turn it into an `Array`.
     fn from_vec() {
-        let vector: Vec<u32> = __;
+        let vector: Vec<u32> = vec![1, 4, 1, 2];
 
         let ndarray_vector = Array::from(vector);
 
@@ -29,6 +29,6 @@ mod constructors_from_vec {
         assert_eq!(ndarray_vector.len(), 4);
         // You can index 1-dimensional arrays using the same notation you use for `Vec`
         assert_eq!(ndarray_vector[0], 1);
-        assert_eq!(ndarray_vector[2], 7);
+        assert_eq!(ndarray_vector[3], 2);
     }
 }

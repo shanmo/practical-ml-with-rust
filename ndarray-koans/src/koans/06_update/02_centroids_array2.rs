@@ -27,7 +27,11 @@ mod update_centroids_array2 {
         let centroids_hashmap = compute_centroids_hashmap(&observations, &cluster_memberships);
 
         // Go back to "cluster generation / dataset" if you are looking for inspiration!
-        __
+        let mut centroids: Array2<f64> = Array2::zeros((n_centroids, observations.shape()[1]));
+        for (&cluster_index, centroid_mean) in centroids_hashmap.iter() {
+            centroids.slice_mut(s![cluster_index, ..]).assign(&centroid_mean.current_mean);
+        }
+        centroids
     }
 
     #[test]
@@ -35,7 +39,7 @@ mod update_centroids_array2 {
         let cluster_size = 100;
         let n_features = 4;
 
-        /// Let's setup a synthetic set of observations, composed of two clusters with known means
+        // Let's setup a synthetic set of observations, composed of two clusters with known means
         let cluster_1: Array2<f64> =
             Array::random((cluster_size, n_features), Uniform::new(-100., 100.));
         let memberships_1 = Array1::zeros(cluster_size);

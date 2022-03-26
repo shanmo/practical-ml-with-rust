@@ -29,6 +29,7 @@ mod cluster_generation_origin {
     use approx::assert_abs_diff_eq;
     use ndarray::{array, Array, Axis};
     use ndarray_rand::RandomExt;
+    use ndarray_rand::rand_distr::Uniform;
 
     /// Our first step in our K-means implementation journey is data generation!
     ///
@@ -40,7 +41,8 @@ mod cluster_generation_origin {
     fn origin_cluster() {
         let n_observations = 10000;
         let n_features = 2;
-        let a = Array::random((n_observations, n_features), __);
+        let (m, n) = (-1.0f32, 1.0f32); 
+        let a = Array::random((n_observations, n_features), Uniform::new(m, n)); 
 
         // The mean point of a cluster is called `centroid`.
         // We'll use this term again when implementing the actual K-means algorithm.
@@ -52,10 +54,10 @@ mod cluster_generation_origin {
         // Both `mean_axis` and `var_axis` reduce the dimensionality of the array:
         // they compute the mean and the variance along the specified axis and return a
         // new array with one less dimension (the axis you specified for reduction is removed).
-        assert_eq!(centroid.ndim(), __);
-        assert_eq!(variance.ndim(), __);
-        assert_eq!(centroid.dim(), __);
-        assert_eq!(variance.dim(), __);
+        assert_eq!(centroid.ndim(), 1);
+        assert_eq!(variance.ndim(), 1);
+        assert_eq!(centroid.dim(), n_features);
+        assert_eq!(variance.dim(), n_features);
 
         // When dealing with floats, it's not a good idea to use equality checks:
         // rounding errors affect the precision of the result, making strict equality
@@ -65,7 +67,8 @@ mod cluster_generation_origin {
         // `assert_abs_diff_eq` checks that absolute difference between each element
         // in the two arrays is smaller than the specified `epsilon`.
         assert_abs_diff_eq!(centroid, array![0., 0.], epsilon = 0.1);
-        assert_abs_diff_eq!(variance, array![1., 1.], epsilon = 0.1);
+        let var = (m-n).powi(2)/12.0;
+        assert_abs_diff_eq!(variance, array![var, var], epsilon = 0.1);
 
         // (Yes, we are randomly generating `a`, hence this test is not fully deterministic,
         //  but you'd have to be quite unlucky to see it fail. I cut myself some slack here.)

@@ -18,7 +18,16 @@ mod assignment_closest {
     ) -> usize {
         // Remember: you can use `.genrows().into_iter()` to get an iterator over the rows
         // of a 2-dimensional array.
-        __
+        let mut min_r: usize = 0; 
+        let mut min_dist = f64::MAX; 
+        for (i, r) in centroids.genrows().into_iter().enumerate() {
+            let dist = euclidean_distance(&r, observation); 
+            if dist < min_dist {
+                min_dist = dist;
+                min_r = i;
+            }
+        }
+        min_r
     }
 
     #[test]

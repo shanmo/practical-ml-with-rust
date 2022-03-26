@@ -58,7 +58,9 @@ mod update_incremental_mean {
         pub fn update(&mut self, new_observation: &ArrayBase<impl Data<Elem = f64>, Ix1>) {
             // Refer to https://docs.rs/ndarray/0.13.0/ndarray/struct.ArrayBase.html#arithmetic-operations
             // when working with array arithmetic operations!
-            __
+            self.n_observations += 1;
+            let pre_mean = self.current_mean.to_owned(); 
+            self.current_mean = pre_mean + (new_observation - &self.current_mean) / (self.n_observations as f64);
         }
     }
 
@@ -74,6 +76,7 @@ mod update_incremental_mean {
 
         for observation in observations.genrows().into_iter() {
             // If it has already been initialised, update it
+            // incremental_mean.as_mut() returns Some(mut mean)
             if let Some(mut mean) = incremental_mean.as_mut() {
                 mean.update(&observation);
             // Otherwise, initialise it

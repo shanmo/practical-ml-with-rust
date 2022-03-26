@@ -1,10 +1,12 @@
 #[cfg(test)]
 mod initialisation_input {
-    use ndarray::{Array, Array2, ArrayView1};
+    use ndarray::{Array, Array1, Array2, ArrayView1, ArrayView2};
     use ndarray_rand::rand::{Rng, SeedableRng};
     use ndarray_rand::rand_distr::StandardNormal;
     use ndarray_rand::RandomExt;
     use rand_isaac::Isaac64Rng;
+    use ndarray_rand::rand::prelude::SliceRandom;
+    use std::iter::FromIterator;
 
     // K-means, as the name says, requires you to declare `k` upfront: the number of clusters you are
     // looking to spot in your dataset (quite a strong assumption to make, I agree).
@@ -14,10 +16,17 @@ mod initialisation_input {
     // distinct observations from your dataset - as simple as that (and it works quite well!).
     pub fn get_random_centroids(
         n_clusters: usize,
-        observations: __,
+        observations: ArrayView2<f64>,
         rng: &mut impl Rng,
     ) -> Array2<f64> {
-        __
+        let mut subset: Array2<f64> = Array::zeros((n_clusters, observations.shape()[1]));
+        let mut nums: Vec<i32> = (0..observations.shape()[0] as i32).collect(); 
+        nums.shuffle(rng);
+        for i in 0..n_clusters {
+            subset.row_mut(i)
+                .assign(&observations.row(nums[i] as usize));
+        }
+        subset
     }
 
     // Helper function.

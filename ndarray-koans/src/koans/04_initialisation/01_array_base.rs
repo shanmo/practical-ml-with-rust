@@ -98,11 +98,11 @@ mod initialisation_array_base {
     /// you are likely to encounter sooner or later is `DataMut`:
     /// it is implemented by all container types that allow you to mutate data
     /// - e.g. `Array` and `ArrayViewMut`, but not `ArrayView`!
+    /// `mapv_inplace` applies its closure argument to all elements in the array
+    /// and replaces each entry with the closure's output.
+    /// Given that it reuses the same memory locations,
+    /// the closure input and output type must coincide
     pub fn double_in_place(a: &mut ArrayBase<impl DataMut<Elem = f64>, Ix1>) {
-        /// `mapv_inplace` applies its closure argument to all elements in the array
-        /// and replaces each entry with the closure's output.
-        /// Given that it reuses the same memory locations,
-        /// the closure input and output type must coincide
         a.mapv_inplace(|x| x * 2.);
     }
 
@@ -114,6 +114,6 @@ mod initialisation_array_base {
         // This will fail to compile!
         // Check the compiler error: can you understand what has gone wrong in light of the above context?
         // Comment it out to progress to the next exercise :)
-        double_in_place(&mut a.view());
+        // double_in_place(&mut a.view());
     }
 }

@@ -43,7 +43,7 @@
 mod goodbye {
     #[test]
     fn the_end_of_your_journey() {
-        let i_made_it = __;
+        let i_made_it = true;
 
         assert!(i_made_it);
     }

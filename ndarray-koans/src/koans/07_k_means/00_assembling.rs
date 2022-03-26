@@ -17,6 +17,7 @@ mod k_means_assembling {
     use super::initialisation_array_base::get_random_centroids;
     use super::assignment_cluster_memberships::compute_cluster_memberships;
     use super::update_centroids_array2::compute_centroids;
+    use super::assignment_generalised_distance::euclidean_distance;
 
     /// In the end, here we are!
     /// We just need to glue together everything we have developed so far to get a working
@@ -47,8 +48,19 @@ mod k_means_assembling {
             let memberships = compute_cluster_memberships(&centroids, observations);
             let new_centroids = compute_centroids(n_clusters, observations, &memberships);
 
-            has_converged = __;
+            n_iterations += 1; 
+            if n_iterations > max_n_iterations {
+                has_converged = true;
+            }
 
+            let mut total_dist: f64 = 0.0; 
+            for i in 0..n_clusters {
+                let dist: f64 = euclidean_distance(&centroids.row(i), &new_centroids.row(i));
+                total_dist += dist;
+            }
+            if total_dist < tolerance {
+                has_converged = true;
+            }
             centroids = new_centroids;
 
             if has_converged {

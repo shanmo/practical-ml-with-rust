@@ -16,7 +16,18 @@ mod update_centroids_hashmap {
         // (n_observations,)
         cluster_memberships: &ArrayBase<impl Data<Elem = usize>, Ix1>,
     ) -> HashMap<usize, IncrementalMean> {
-        __
+        assert_eq!(observations.shape()[0], cluster_memberships.shape()[0]); 
+        let mut hm: HashMap<usize, IncrementalMean> = HashMap::new(); 
+        for i in 0..cluster_memberships.len() {
+            let j = cluster_memberships[i]; 
+            if hm.contains_key(&j) {
+                hm.get_mut(&j).unwrap().update(&observations.row(i));
+            } else {
+                let mut incremental_mean = IncrementalMean::new(observations.row(i).to_owned());
+                hm.insert(j, incremental_mean);
+            }  
+        }    
+        hm 
     }
 
     #[test]
@@ -24,7 +35,7 @@ mod update_centroids_hashmap {
         let cluster_size = 100;
         let n_features = 4;
 
-        /// Let's setup a synthetic set of observations, composed of two clusters with known means
+        // Let's setup a synthetic set of observations, composed of two clusters with known means
         let cluster_1: Array2<f64> =
             Array::random((cluster_size, n_features), Uniform::new(-100., 100.));
         let memberships_1 = Array1::zeros(cluster_size);
