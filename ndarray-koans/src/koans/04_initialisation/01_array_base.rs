@@ -77,6 +77,7 @@ mod initialisation_array_base {
     {
         let (n_samples, _) = observations.dim();
         let indices = rand::seq::index::sample(rng, n_samples, n_clusters).into_vec();
+        // only keep selected rows 
         observations.select(Axis(0), &indices)
     }
 
