@@ -1,0 +1,12 @@
+[package]
+name = "rusty_machine_unsupervised"
+version = "0.1.0"
+
+edition = "2018"
+
+[dependencies]
+rusty-machine="0.5.4"
+rand = "0.6.5"
+csv = "1.0.7"
+serde = "1"
+serde_derive = "1"
